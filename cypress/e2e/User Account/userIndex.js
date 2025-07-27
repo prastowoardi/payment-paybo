@@ -76,3 +76,111 @@ describe('Change Password Menu', () => {
         });
     });
 });
+
+describe('Role Permission Menu', () => {
+    it('Masuk ke Sub Menu Role Permission dan Check Existing Field', () => {
+        cy.visit('/demo_psp2/merchant/dashboard');
+        cy.contains('.c-sidebar-nav-dropdown-toggle', 'User Account')
+        .should('be.visible')
+        .click();
+
+        cy.contains('a.c-sidebar-nav-link', 'Role Permission')
+        .should('be.visible')
+        .click();
+
+        cy.log('Cek Visibilitas tombol [Add]');
+        cy.get('a.btn.btn-primary')
+        .contains('Add')
+        .should('exist')
+        .and('be.visible');
+
+        cy.log('Cek Visibilitas Field Search');
+        cy.get('input[name="role_name"]')
+        .should('exist')
+        .and('have.attr', 'placeholder', 'Role');
+
+        cy.log('Cek Visibilitas tombol [Search]');
+        cy.get('button[type="submit"]')
+        .contains('Search')
+        .should('exist')
+        .and('be.visible');
+
+        cy.get('table tbody tr').should('have.length.greaterThan', 0);
+
+        cy.log('Cek Visibilitas tombol [Edit]');
+        cy.get('table tbody tr').each(($row) => {
+            cy.wrap($row)
+            .find('a.btn.btn-warning.btn-sm')
+            .should('exist');
+        });
+        
+        cy.log('Cek Visibilitas [Pagination]');
+        cy.get('.pagination').should('exist').and('be.visible');
+    });
+});
+
+describe('Role Permission Menu', () => {
+    it('Masuk ke Sub Menu Role Permission dan Check Existing Field', () => {
+        cy.visit('/demo_psp2/merchant/dashboard');
+        cy.contains('.c-sidebar-nav-dropdown-toggle', 'User Account')
+        .should('be.visible')
+        .click();
+
+        cy.contains('a.c-sidebar-nav-link', 'Sub Account')
+        .should('be.visible')
+        .click();
+
+        cy.log('Cek Visibilitas tombol [Add]');
+        cy.get('a.btn.btn-primary')
+        .contains('Add')
+        .should('exist')
+        .and('be.visible');
+
+        cy.log('Cek Visibilitas tombol [Search]');
+        cy.get('button[type="submit"]')
+        .contains('Search')
+        .should('exist')
+        .and('be.visible');
+
+        cy.get('.table-responsive').should('have.length.greaterThan', 0);
+        
+        cy.log('Cek Visibilitas tombol [Delete]');
+        cy.get('.table-responsive').each(($row) => {
+            cy.wrap($row)
+            .find('button.btn.btn-danger.btn-sm')
+            .should('exist');
+        });
+
+        cy.log('Cek Visibilitas tombol [Merchant]');
+        cy.get('.table-responsive').each(($row) => {
+            cy.wrap($row)
+            .find('a.btn.btn-primary.btn-sm')
+            .should('exist');
+        });
+        
+        cy.log('Cek Visibilitas tombol [Bank Account]');
+        cy.get('.table-responsive').each(($row) => {
+            cy.wrap($row)
+            .find('a.btn.btn-info.btn-sm')
+            .should('exist');
+        });
+
+        cy.log('Cek Visibilitas tombol [Edit]');
+        cy.get('.table-responsive').each(($row) => {
+            cy.wrap($row)
+            .find('a.btn.btn-warning.btn-sm')
+            .should('exist');
+        });
+
+        cy.log('Cek Visibilitas tombol [Currency]');
+        cy.get('.table-responsive').each(($row) => {
+            cy.wrap($row)
+            .find('a.btn.btn-warning.btn-sm')
+            .contains('Currency')
+            .should('exist');
+        });
+
+        cy.log('Cek Visibilitas [Pagination]');
+        cy.get('.pagination').should('exist').and('be.visible');
+    });
+});
