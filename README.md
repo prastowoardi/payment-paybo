@@ -49,10 +49,11 @@ Repository ini berisi automasi pengujian end‑to‑end (E2E) untuk system **Bac
 
 ## Struktur dan Konfigurasi
 
+```
 payment-paybo/
 ├── cypress/
-│ └── e2e/
-│ └── *.js ← file-file test
+│   └── e2e/
+│       └── *.js
 ├── .env
 └── cypress.config.js
-
+```
