@@ -1,9 +1,57 @@
 {
-  "devDependencies": {
-    "cypress": "^14.5.3"
-  },
   "dependencies": {
     "dotenv": "^17.2.1",
     "otplib": "^12.0.1"
+  },
+
+  "name": "payment-s88",
+  "description": "Cypress E2E tests for BO SeaPay88",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:chrome": "cypress run --browser chrome",
+    "cypress:run:firefox": "cypress run --browser firefox",
+    "cypress:run:edge": "cypress run --browser edge",
+    "test:all": "cypress run --spec 'cypress/e2e/**/*.cy.js'",
+    "test:login": "cypress run --spec 'cypress/e2e/**/01-login.cy.js'",
+    "test:dashboard": "cypress run --spec 'cypress/e2e/**/02-dashboard.cy.js'",
+    "test:transactions": "cypress run --spec 'cypress/e2e/**/03-transactions.cy.js'",
+    "test:reports": "cypress run --spec 'cypress/e2e/**/04-reports.cy.js'",
+    "test:settings": "cypress run --spec 'cypress/e2e/**/05-settings.cy.js'",
+    "test:navigation": "cypress run --spec 'cypress/e2e/**/06-navigation.cy.js'",
+    "test:api": "cypress run --spec 'cypress/e2e/**/07-api-integration.cy.js'",
+    "test:accessibility": "cypress run --spec 'cypress/e2e/**/08-accessibility.cy.js'",
+    "test:errors": "cypress run --spec 'cypress/e2e/**/09-error-handling.cy.js'",
+    "test:performance": "cypress run --spec 'cypress/e2e/**/10-performance.cy.js'",
+    "test:smoke": "cypress run --env grepTags='@smoke'",
+    "test:regression": "cypress run --env grepTags='@regression'",
+    "test:critical": "cypress run --env grepTags='@critical'",
+    "test:headless": "cypress run --headless",
+    "test:headed": "cypress run --headed",
+    "test:record": "cypress run --record --key YOUR_RECORD_KEY",
+    "test:parallel": "cypress run --parallel --record --key YOUR_RECORD_KEY",
+    "test:mobile": "cypress run --config viewportWidth=375,viewportHeight=667",
+    "test:tablet": "cypress run --config viewportWidth=768,viewportHeight=1024",
+    "test:env:dev": "cypress run --env environment=dev,baseUrl=https://bo.dev88dev.com/",
+    "test:env:staging": "cypress run --env environment=staging,baseUrl=https://bo.dev88staging.com/",
+    "test:env:uat": "cypress run --env environment=uat,baseUrl=https://bo.dev88uat.com/",
+    "report:generate": "cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true",
+    "report:merge": "mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json",
+    "report:html": "marge cypress/reports/merged-report.json --reportDir cypress/reports --inline",
+    "clean:reports": "rm -rf cypress/reports cypress/screenshots cypress/videos",
+    "clean:all": "npm run clean:reports && rm -rf node_modules package-lock.json",
+    "lint:cypress": "eslint cypress/**/*.js",
+    "format:cypress": "prettier --write cypress/**/*.js"
+  },
+  "devDependencies": {
+    "cypress": "^14.5.3",
+    "@cypress/grep": "^4.1.1",
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-cypress": "^5.1.1",
+    "prettier": "^3.6.2"
   }
 }

@@ -1,0 +1,42 @@
+{
+  "dev": {
+    "baseUrl": "https://bo.dev88dev.com/",
+    "apiUrl": "https://bo.dev88dev.com/api",
+    "credentials": {
+      "merchant": {
+        "email": "merchant@seapay88.com",
+        "password": "devPassword123"
+      }
+    }
+  },
+  "staging": {
+    "baseUrl": "https://bo.dev88staging.com/",
+    "apiUrl": "https://bo.dev88staging.com/api",
+    "credentials": {
+      "merchant": {
+        "email": "merchant@seapay88.com",
+        "password": "stagingPassword123"
+      }
+    }
+  },
+  "uat": {
+    "baseUrl": "https://bo.dev88uat.com/",
+    "apiUrl": "https://bo.dev88uat.com/api",
+    "credentials": {
+      "merchant": {
+        "email": "merchant@seapay88.com",
+        "password": "fKj&l56v"
+      }
+    }
+  },
+  "production": {
+    "baseUrl": "https://bo.seapay88.com/",
+    "apiUrl": "https://bo.seapay88.com/api",
+    "credentials": {
+      "merchant": {
+        "email": "merchant@seapay88.com",
+        "password": "PRODUCTION_PASSWORD"
+      }
+    }
+  }
+}

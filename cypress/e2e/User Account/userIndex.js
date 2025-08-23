@@ -119,8 +119,8 @@ describe('Role Permission Menu', () => {
     });
 });
 
-describe('Role Permission Menu', () => {
-    it('Masuk ke Sub Menu Role Permission dan Check Existing Field', () => {
+describe('Sub Account Menu', () => {
+    it('Masuk ke Sub Menu Sub Account dan Check Existing Field', () => {
         cy.visit('/demo_psp2/merchant/dashboard');
         cy.contains('.c-sidebar-nav-dropdown-toggle', 'User Account')
         .should('be.visible')

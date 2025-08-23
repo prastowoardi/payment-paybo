@@ -1,0 +1,137 @@
+{
+  "users": {
+    "merchant": {
+      "email": "merchant@seapay88.com",
+      "password": "fKj&l56v",
+      "role": "merchant",
+      "permissions": ["view_dashboard", "manage_transactions", "view_reports"]
+    },
+    "admin": {
+      "email": "admin@seapay88.com",
+      "password": "admin123",
+      "role": "admin",
+      "permissions": ["full_access"]
+    },
+    "invalid": {
+      "email": "invalid@example.com",
+      "password": "wrongpassword"
+    }
+  },
+  "transactions": {
+    "valid": {
+      "amount": 100.00,
+      "currency": "USD",
+      "description": "Test transaction",
+      "type": "payment",
+      "status": "completed"
+    },
+    "pending": {
+      "amount": 250.50,
+      "currency": "USD",
+      "description": "Pending transaction",
+      "type": "payment",
+      "status": "pending"
+    },
+    "failed": {
+      "amount": 75.25,
+      "currency": "USD",
+      "description": "Failed transaction",
+      "type": "payment",
+      "status": "failed"
+    }
+  },
+  "searchTerms": {
+    "valid": ["transaction", "payment", "merchant", "completed"],
+    "invalid": ["xyz123", "nonexistent", "invalid_search"],
+    "special": ["@#$%", "' OR 1=1", "<script>alert('test')</script>"]
+  },
+  "dateRanges": {
+    "today": {
+      "start": "2024-01-01",
+      "end": "2024-01-01"
+    },
+    "thisWeek": {
+      "start": "2024-01-01",
+      "end": "2024-01-07"
+    },
+    "thisMonth": {
+      "start": "2024-01-01", 
+      "end": "2024-01-31"
+    },
+    "lastMonth": {
+      "start": "2023-12-01",
+      "end": "2023-12-31"
+    }
+  },
+  "formData": {
+    "profile": {
+      "validUpdate": {
+        "name": "Updated Test Name",
+        "phone": "+1234567890",
+        "company": "Updated Test Company",
+        "address": "123 Test Street"
+      },
+      "invalidUpdate": {
+        "name": "",
+        "phone": "invalid_phone",
+        "email": "invalid_email"
+      }
+    },
+    "settings": {
+      "notification": {
+        "emailNotifications": true,
+        "smsNotifications": false,
+        "pushNotifications": true
+      },
+      "security": {
+        "twoFactorAuth": true,
+        "sessionTimeout": 30
+      }
+    }
+  },
+  "apiResponses": {
+    "dashboard": {
+      "success": {
+        "totalTransactions": 1250,
+        "totalRevenue": 125000.50,
+        "pendingTransactions": 25,
+        "failedTransactions": 5
+      },
+      "empty": {
+        "totalTransactions": 0,
+        "totalRevenue": 0,
+        "pendingTransactions": 0,
+        "failedTransactions": 0
+      }
+    },
+    "transactions": {
+      "success": {
+        "data": [
+          {
+            "id": "TXN001",
+            "amount": 100.00,
+            "currency": "USD",
+            "status": "completed",
+            "date": "2024-01-15"
+          },
+          {
+            "id": "TXN002",
+            "amount": 250.50,
+            "currency": "USD", 
+            "status": "pending",
+            "date": "2024-01-14"
+          }
+        ],
+        "totalCount": 2,
+        "currentPage": 1,
+        "totalPages": 1
+      },
+      "empty": {
+        "data": [],
+        "totalCount": 0,
+        "currentPage": 1,
+        "totalPages": 0
+      }
+    }
+  }
+}
